@@ -86,7 +86,19 @@ cd build.with.payload
 ::sysinit:/bin/busybox --install -s
 /dev/ttyHTIF0::sysinit:-/bin/ash 
 ```
-
+### build boot.img
+```
+$ cd $TOP/linux-3.4.53
+$ dd if=/dev/zero of=root-gcc.img bs=1M count=256
+$ mkfs.ext2 -F root-gcc.img
+$ mkdir mnt-gcc
+$ sudo mount -o loop root-gcc.img mnt-gcc
+$ cd mnt-gcc
+$ mkdir -p mkdir -p bin etc dev lib proc sbin tmp usr usr/bin usr/lib usr/sbin
+$ curl http://www.ocf.berkeley.edu/~qmn/linux/linux-inittab > etc/inittab 
+$ cp $TOP/busybox-1.21.1/busybox bin/
+$ ln -s ../bin/busybox sbin/init
+```
 ### test kernel
 I build root.img ,but is useless now
 ```
