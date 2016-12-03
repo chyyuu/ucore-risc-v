@@ -3,10 +3,10 @@
 # risc-v home
 - [risc-v](https://riscv.org)
 
-## sepc
+## Specifications
 - [user-level ISA spec](https://content.riscv.org/wp-content/uploads/2016/06/riscv-spec-v2.1.pdf)
 - [privileged ISA spec](https://content.riscv.org/wp-content/uploads/2016/07/riscv-privileged-v1.9-1.pdf)
-- [ISA Chinese](https://www.gitbook.com/book/fmrt/riscv-spec-v2-cn/details)
+- [ISA spec Chinese](https://www.gitbook.com/book/fmrt/riscv-spec-v2-cn/details)
 
 ## simulator
 - [spike](https://github.com/riscv/riscv-isa-sim)
@@ -25,7 +25,3 @@
 - [Third RISC-V Workshop: Day One](http://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-one)
 - [Second RISC-V Workshop: Day Two](http://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-two)
 - [Second RISC-V Workshop: Day One](http://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-one)
-
-
-
-
