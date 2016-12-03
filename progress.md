@@ -1,5 +1,8 @@
 # progress on porting ucore on risc-v
 
+## 20161203
+### prepare [related info](https://github.com/chyyuu/ucore-risc-v/blob/master/related-info.md)
+
 ## 20161201
 
 
