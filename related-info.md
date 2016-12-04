@@ -15,7 +15,7 @@
 
 ## os porting
 - [How Genode came to RISC-V](http://genode.org/documentation/articles/riscv)
-- 
+- [freertos for risc-v](https://interactive.freertos.org/hc/en-us/community/posts/210030246-32-bit-and-64-bit-RISC-V-using-GCC)
 - [UEFI Port to RISC-V Processor Architecture](http://www.uefi.org/sites/default/files/resources/UEFI_Plugfest_March_2016_RISC_V.pdf)
 
 ## risc-v workshop
