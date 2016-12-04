@@ -54,7 +54,6 @@ ging environment.
 | neg rd, rs                   | sub rd, x0, rs                           | Two’s complement                |
 | negw rd, rs                  | subw rd, x0, rs                          | Two’s complement word           |
 | sext.w rd, rs                | addiw rd, rs, x0                         | Sign extend word                |
-|                              |                                          |                                 |
 | seqz rd, rs                  | sltiu rd, rs, 1                          | Set if = zero                   |
 | snez rd, rs                  | sltu rd, x0, rs                          | Set if <> zero                  |
 | sltz rd, rs                  | slt rd, rs, x0                           | Set if < zero                   |
@@ -78,9 +77,7 @@ ging environment.
 | ret                          | jalr x0, x1, 0                           | Return from subroutine          |
 | call offset                  | auipc x6, offset[31:12] ;  jalr x1, x6, offset[11:0] | Call far-away subroutine        |
 | tail offset                  | auipc x6, offset[31:12] ; jalr x0, x6, offset[11:0] | Tail call far-away subroutine   |
-|                              |                                          |                                 |
-|                              |                                          |                                 |
-|                              |                                          |                                 |
+
 
 ## 20161201
 
