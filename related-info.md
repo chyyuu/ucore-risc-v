@@ -7,10 +7,11 @@
 - [user-level ISA spec](https://content.riscv.org/wp-content/uploads/2016/06/riscv-spec-v2.1.pdf)
 - [privileged ISA spec](https://content.riscv.org/wp-content/uploads/2016/07/riscv-privileged-v1.9-1.pdf)
 - [ISA spec Chinese](https://www.gitbook.com/book/fmrt/riscv-spec-v2-cn/details)
+- [Design of the RISC-V Instruction Set Architecture](https://people.eecs.berkeley.edu/~waterman/papers/phd-thesis.pdf)
 
 ## simulator
 - [spike](https://github.com/riscv/riscv-isa-sim)
-- [angel]()
+- [angel](https://github.com/riscv/riscv-angel)
 
 ## os porting
 - [How Genode came to RISC-V](http://genode.org/documentation/articles/riscv)
