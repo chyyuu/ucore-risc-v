@@ -4,6 +4,41 @@
 - prepare [related info](https://github.com/chyyuu/ucore-risc-v/blob/master/related-info.md)
 - read spec
 
+### user-level spec
+#### brief intro
+An integer base plus these four standard extensions (“IMAFD”) is given the abbreviation “G” and provides a
+general-purpose scalar instruction set. RV32G and RV64G are currently the default target of our
+compiler toolchains. 
+
+- registers: 32 general-purpose x0~x31. x0=0. pc is program counter
+- instruction: In the base ISA, there are four core instruction formats (R/I/S/U)
+
+The RISC-V ISA keeps the source (rs1 and rs2) and destination (rd) registers at the same position
+in all formats to simplify decoding.
+
+#### Memory Model
+The base RISC-V ISA supports multiple concurrent threads of execution within a single user address
+space. Each RISC-V thread has its own user register state and program counter, and executes an
+independent sequential instruction stream. 
+
+RISC-V has a relaxed memory model between threads,
+requiring an explicit FENCE instruction to guarantee any specific ordering between memory oper-
+ations from different RISC-V threads. 
+
+#### Control and Status Register Instructions
+SYSTEM instructions are used to access system functionality that might require privileged access
+and are encoded using the I-type instruction format. These can be divided into two main classes:
+those that atomically read-modify-write control and status registers (CSRs), and all other poten-
+tially privileged instructions. 
+
+#### Environment Call and Breakpoints
+The ECALL instruction (like sysenter in x86) is used to make a request to the supporting execution environment, which is
+usually an operating system. 
+
+The EBREAK instruction is used by debuggers to cause control to be transferred back to a debug-
+ging environment.
+
+
 ## 20161201
 
 ### install tools
