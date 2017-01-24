@@ -10,6 +10,14 @@
 - MSIP Registers: registers for Machine-mode software interrupts.
 - PRCI: Power, Reset, Clock, Interrupt
  
+G = I, M, A, F, D
+
+- I = Base Integer ISA
+- M = Standard Integer Multiplication/Division Extension
+- A = Standard Atomics Extension
+- F = Standard Single-precision Floating-point extension 
+- D = Standard Double-precision floating-point extension
+ 
 ## 20161203
 - prepare [related info](https://github.com/chyyuu/ucore-risc-v/blob/master/related-info.md)
 - read spec
