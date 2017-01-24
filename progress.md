@@ -10,7 +10,7 @@
 - MSIP Registers: registers for Machine-mode software interrupts.
 - PRCI: Power, Reset, Clock, Interrupt
  
-G = I, M, A, F, D
+RV64IMAFD = (“RV64G”)  G = I, M, A, F, D
 
 - I = Base Integer ISA
 - M = Standard Integer Multiplication/Division Extension
