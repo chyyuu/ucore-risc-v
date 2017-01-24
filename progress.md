@@ -7,7 +7,8 @@
 - WLRL: Write-Legal, Read-Legal field. A register field that should only be written with legal values and that only returns legal value if last written with a legal value.
 - WARL: Write-Any Read-Legal field. A register field that can be written with any value, but returns only supported values when read.
 - TileLink: A free and open interconnect standard originally developed at UC Berkeley.
-- MSIP Registers: registers for Machine-mode software interrupts
+- MSIP Registers: registers for Machine-mode software interrupts.
+- PRCI: Power, Reset, Clock, Interrupt
  
 ## 20161203
 - prepare [related info](https://github.com/chyyuu/ucore-risc-v/blob/master/related-info.md)
