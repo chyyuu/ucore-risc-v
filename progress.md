@@ -1,5 +1,21 @@
 # progress on porting ucore on risc-v
+##Terminology
 
+- PLIC: Platform-Level Interrupt Controller. The global interrupt controller in a RISC-
+V system.
+- WIRI: Writes-Ignored, Reads-Ignore field. A read-only register field that may con-
+tain unknown information. Writes to the field are ignored, and reads should
+ignore the value returned. 
+- WPRI: Writes-Preserve Reads-Ignore field. A register field that may contain un-
+known information. Reads should ignore the value returned, but writes to
+the whole register should preserve the original value. 
+- WLRL: Write-Legal, Read-Legal field. A register field that should only be written
+with legal values and that only returns legal value if last written with a legal
+value.
+- WARL: Write-Any Read-Legal field. A register field that can be written with any
+value, but returns only supported values when read.
+- TileLink: A free and open interconnect standard originally developed at UC Berkeley.
+ 
 ## 20161203
 - prepare [related info](https://github.com/chyyuu/ucore-risc-v/blob/master/related-info.md)
 - read spec
