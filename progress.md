@@ -9,7 +9,7 @@
 - TileLink: A free and open interconnect standard originally developed at UC Berkeley.
 - MSIP Registers: registers for Machine-mode software interrupts.
 - PRCI: Power, Reset, Clock, Interrupt
- 
+
 RV64IMAFD = (“RV64G”)  G = I, M, A, F, D
 
 - I = Base Integer ISA
@@ -18,11 +18,25 @@ RV64IMAFD = (“RV64G”)  G = I, M, A, F, D
 - F = Standard Single-precision Floating-point extension 
 - D = Standard Double-precision floating-point extensionSv39 (RV64) 
 
+Sv32 (RV32)	
+
+- Demand-­‐paged  32-­‐bit  virtual  address  spaces
+
+
+- 2-­‐level  page  table
+
+- 4  KiB  pages,  4  MiB  megapages
+
 sv39(rv64)
 
 - Demand-paged 39-bit virtual-address spaces
 - 3-level page table
 - 4 KiB pages, 2 MiB megapages, 1 GiB gigapages
+
+Sv48,  Sv57, Sv64	
+
+- Sv39 + 1/2/3 more  page table levels
+
 
 ## 20161203
 - prepare [related info](https://github.com/chyyuu/ucore-risc-v/blob/master/related-info.md)
@@ -234,6 +248,13 @@ The standard RISC-V ISA sets aside a 12-bit encoding space (csr[11:0]) for up to
 - Interrupt-Management Instructions: WFI
 - Memory-Management Instructions: SFENCE.VM
 
+Only	  4 new instructions	  to  support M+S  modes	
+
+- SFENCE.VM	 (synchronize page  table  updates)
+- ERET (exception return)
+- MRTS  (redirect  trap  from  machine  to  supervisor)
+- WFI  (wait  for  interrupt)
+
 ####   Sv32: Page-Based 32-bit Virtual-Memory Systems
 
 When Sv32 is written to the VM field in the mstatus register, the supervisor operates in a 32-bit paged virtual-memory system. Sv32 is supported on RV32 systems and is designed to include mechanisms sufficient for supporting modern Unix-based operating systems.
@@ -274,13 +295,13 @@ Any level of PTE may be a leaf PTE, so in addition to 4 KiB pages, Sv32 supports
 A virtual address va is translated into a physical address pa as follows:
 
 1.  Let a be sptbr.ppn × PAGESIZE, and let i = LEVELS − 1. (For Sv32, PAGESIZE=2^12 and LEVELS=2.)
-2. Let pte be the value of the PTE at address a+va.vpn[i]*PTESIZE. (For Sv32, PTESIZE=4.)
+2.  Let pte be the value of the PTE at address a+va.vpn[i]*PTESIZE. (For Sv32, PTESIZE=4.)
 3.  If pte.v = 0, or if pte.r = 0 and pte.w = 1, stop and raise an access exception.
-4. Otherwise, the PTE is valid. If pte.r = 1 or pte.x = 1, go to step 5. Otherwise, this PTE is a pointer to the next level of the page table. Let i = i − 1. If i < 0, stop and raise an access exception. Otherwise, let a = pte.ppn × PAGESIZE and go to step 2.
+4.  Otherwise, the PTE is valid. If pte.r = 1 or pte.x = 1, go to step 5. Otherwise, this PTE is a pointer to the next level of the page table. Let i = i − 1. If i < 0, stop and raise an access exception. Otherwise, let a = pte.ppn × PAGESIZE and go to step 2.
 5.  A leaf PTE has been found. Determine if the requested memory access is allowed by the pte.r, pte.w, and pte.x bits. If not, stop and raise an access exception. Otherwise, the translation is successful. Set pte.a to 1, and, if the memory access is a store, set pte.d to 1. The translated physical address is given as follows:
-   - pa.pgoff = va.pgoff.
-   -  If i > 0, then this is a superpage translation and pa.ppn[i − 1 : 0] = va.vpn[i − 1 : 0].
-   - pa.ppn[LEVELS − 1 : i] = pte.ppn[LEVELS − 1 : i].
+    - pa.pgoff = va.pgoff.
+    - If i > 0, then this is a superpage translation and pa.ppn[i − 1 : 0] = va.vpn[i − 1 : 0].
+    - pa.ppn[LEVELS − 1 : i] = pte.ppn[LEVELS − 1 : i].
 
 #### Platform-Level Interrupt Controller (PLIC)
 
