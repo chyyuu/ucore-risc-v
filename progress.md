@@ -16,8 +16,14 @@ G = I, M, A, F, D
 - M = Standard Integer Multiplication/Division Extension
 - A = Standard Atomics Extension
 - F = Standard Single-precision Floating-point extension 
-- D = Standard Double-precision floating-point extension
- 
+- D = Standard Double-precision floating-point extensionSv39 (RV64) 
+
+sv39(rv64)
+
+- Demand-paged 39-bit virtual-address spaces
+- 3-level page table
+- 4 KiB pages, 2 MiB megapages, 1 GiB gigapages
+
 ## 20161203
 - prepare [related info](https://github.com/chyyuu/ucore-risc-v/blob/master/related-info.md)
 - read spec
